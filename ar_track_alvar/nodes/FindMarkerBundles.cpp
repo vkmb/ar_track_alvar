@@ -72,7 +72,7 @@ typedef pcl::PointCloud<ARPoint> ARCloud;
 
 using namespace alvar;
 using namespace std;
-using boost::make_shared;
+using std::make_shared;
 
 Camera* cam;
 cv_bridge::CvImagePtr cv_ptr_;

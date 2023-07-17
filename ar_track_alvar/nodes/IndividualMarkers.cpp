@@ -56,7 +56,7 @@ typedef pcl::PointCloud<ARPoint> ARCloud;
 
 using namespace alvar;
 using namespace std;
-using boost::make_shared;
+using std::make_shared;
 
 bool init = true;
 Camera* cam;

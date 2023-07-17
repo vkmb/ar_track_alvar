@@ -20,6 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
         visualization_msgs)
 
 find_package(Eigen3 REQUIRED)
+find_package(PCL REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(TinyXML REQUIRED)
 
@@ -51,6 +52,7 @@ include_directories(include
                     ${catkin_INCLUDE_DIRS}
                     ${OpenCV_INCLUDE_DIRS}
                     ${TinyXML_INCLUDE_DIRS}
+                    ${PCL_INCLUDE_DIRS}
 
 )
 
@@ -85,12 +87,12 @@ add_library(${PROJECT_NAME}
     src/Threads_unix.cpp
     src/Util.cpp
 )
-target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} ${TinyXML_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} ${TinyXML_LIBRARIES}  ${PCL_LIBRARIES} ${catkin_LIBRARIES})
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 # Kinect filtering code
 add_library(kinect_filtering src/kinect_filtering.cpp)
-target_link_libraries(kinect_filtering ${catkin_LIBRARIES})
+target_link_libraries(kinect_filtering ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 add_dependencies(kinect_filtering ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 add_library(medianFilter src/medianFilter.cpp)

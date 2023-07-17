@@ -51,7 +51,7 @@ const double distance_threshold_ = 0.005;
 PlaneFitResult fitPlane(ARCloud::ConstPtr cloud)
 {
   PlaneFitResult res;
-  pcl::PointIndices::Ptr inliers = boost::make_shared<pcl::PointIndices>();
+  pcl::PointIndices::Ptr inliers = std::make_shared<pcl::PointIndices>();
 
   pcl::SACSegmentation<ARPoint> seg;
   seg.setOptimizeCoefficients(true);

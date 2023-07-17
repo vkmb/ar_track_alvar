@@ -59,7 +59,7 @@ a::ARCloud::Ptr generateCloud(const double px, const double py, const double pz,
   const double INC = 0.1;
   const double NOISE = 0.01;
 
-  a::ARCloud::Ptr cloud(boost::make_shared<a::ARCloud>());
+  a::ARCloud::Ptr cloud(std::make_shared<a::ARCloud>());
   for (double u = 0; u < 1 + INC / 2; u += INC)
   {
     for (double v = 0; v < 1 + INC / 2; v += INC)
